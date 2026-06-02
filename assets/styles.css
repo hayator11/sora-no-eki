@@ -48,7 +48,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(40, 28, 22, .80), rgba(40, 28, 22, .34) 52%, rgba(40, 28, 22, .10)),
-    url("hero-sora-no-eki.png") center / cover no-repeat;
+    url("hero-sora-no-eki.webp") center / cover no-repeat;
   display: grid;
   align-items: center;
 }
@@ -108,7 +108,7 @@ main section { padding: 78px 0; }
   min-height: 360px;
   border-radius: var(--radius);
   overflow: hidden;
-  background: url("hero-sora-no-eki.png") center / cover no-repeat;
+  background: url("hero-sora-no-eki.webp") center / cover no-repeat;
   box-shadow: var(--shadow);
 }
 .map-frame {
