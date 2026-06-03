@@ -48,13 +48,46 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(40, 28, 22, .80), rgba(40, 28, 22, .34) 52%, rgba(40, 28, 22, .10)),
-    url("hero-sora-no-eki.webp") center / cover no-repeat;
+    url("hero-sora-no-eki.webp?v=3") center / cover no-repeat;
   display: grid;
   align-items: center;
 }
 .hero-content { max-width: 720px; padding: 80px 0 110px; }
 .eyebrow { color: var(--brand-dark); font-weight: 900; letter-spacing: .08em; font-size: 13px; }
 .hero .eyebrow { color: #ffd6bf; }
+
+.hero-principle {
+  color: #ffd6bf;
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  line-height: 1.9;
+  margin: 0 0 18px;
+  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: .1em;
+  max-width: 920px;
+  font-size: clamp(46px, 5vw, 64px);
+  line-height: 1.16;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-wrap: auto;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 22px rgba(0,0,0,.32);
+}
+.hero-title-line,
+.hero-title-pc,
+.hero-title-sp,
+.hero-title-xs {
+  display: block;
+}
+.hero-title-sp,
+.hero-title-xs {
+  display: none;
+}
 h1, h2, h3 { line-height: 1.35; margin: 0 0 18px; letter-spacing: .02em; text-wrap: balance; }
 h1 { font-size: clamp(38px, 7vw, 76px); }
 h2 { font-size: clamp(28px, 4vw, 44px); }
@@ -108,7 +141,7 @@ main section { padding: 78px 0; }
   min-height: 360px;
   border-radius: var(--radius);
   overflow: hidden;
-  background: url("hero-sora-no-eki.webp") center / cover no-repeat;
+  background: url("hero-sora-no-eki.webp?v=3") center / cover no-repeat;
   box-shadow: var(--shadow);
 }
 .map-frame {
@@ -163,4 +196,33 @@ main section { padding: 78px 0; }
   main section { padding: 58px 0; }
   .mobile-cta { display: grid; }
   body { padding-bottom: 54px; }
+}
+
+
+@media (max-width: 640px) {
+  .hero-content { max-width: 100%; padding: 64px 0 92px; }
+  .hero-principle {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: clamp(38px, 9vw, 48px);
+    line-height: 1.18;
+    letter-spacing: 0;
+    margin-bottom: 18px;
+  }
+  .hero-title-pc,
+  .hero-title-xs { display: none; }
+  .hero-title-sp { display: block; }
+}
+
+@media (max-width: 430px) {
+  .hero-title {
+    font-size: clamp(36px, 10vw, 42px);
+    line-height: 1.16;
+  }
+  .hero-title-pc,
+  .hero-title-sp { display: none; }
+  .hero-title-xs { display: block; }
 }
