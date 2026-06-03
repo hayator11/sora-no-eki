@@ -48,13 +48,23 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(40, 28, 22, .80), rgba(40, 28, 22, .34) 52%, rgba(40, 28, 22, .10)),
-    url("hero-sora-no-eki.webp?v=3") center / cover no-repeat;
+    url("hero-sora-no-eki.webp?v=4") center / cover no-repeat;
   display: grid;
   align-items: center;
 }
 .hero-content { max-width: 720px; padding: 80px 0 110px; }
 .eyebrow { color: var(--brand-dark); font-weight: 900; letter-spacing: .08em; font-size: 13px; }
 .hero .eyebrow { color: #ffd6bf; }
+
+.hero-location {
+  color: #ffd6bf;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  line-height: 1.7;
+  margin: 0 0 12px;
+  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
 
 .hero-principle {
   color: #ffd6bf;
@@ -70,8 +80,8 @@ img { max-width: 100%; height: auto; display: block; }
   flex-direction: column;
   gap: .1em;
   max-width: 920px;
-  font-size: clamp(46px, 5vw, 64px);
-  line-height: 1.16;
+  font-size: clamp(48px, 5.2vw, 72px);
+  line-height: 1.12;
   font-weight: 900;
   letter-spacing: .02em;
   text-wrap: auto;
@@ -87,6 +97,9 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-title-sp,
 .hero-title-xs {
   display: none;
+}
+.hero-title-pc {
+  white-space: normal;
 }
 h1, h2, h3 { line-height: 1.35; margin: 0 0 18px; letter-spacing: .02em; text-wrap: balance; }
 h1 { font-size: clamp(38px, 7vw, 76px); }
@@ -141,7 +154,7 @@ main section { padding: 78px 0; }
   min-height: 360px;
   border-radius: var(--radius);
   overflow: hidden;
-  background: url("hero-sora-no-eki.webp?v=3") center / cover no-repeat;
+  background: url("hero-sora-no-eki.webp?v=4") center / cover no-repeat;
   box-shadow: var(--shadow);
 }
 .map-frame {
@@ -201,6 +214,10 @@ main section { padding: 78px 0; }
 
 @media (max-width: 640px) {
   .hero-content { max-width: 100%; padding: 64px 0 92px; }
+  .hero-location {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
   .hero-principle {
     font-size: 13px;
     line-height: 1.8;
