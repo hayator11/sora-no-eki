@@ -233,3 +233,59 @@ main section { padding: 78px 0; }
   }
   .hero-title-main { display: block; }
 }
+
+
+/* Satoya MAP CTA */
+.map-cta-panel {
+  margin-top: 34px;
+  padding: clamp(24px, 4vw, 38px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  max-width: 860px;
+}
+.map-cta-panel h2 {
+  font-size: clamp(26px, 3.8vw, 42px);
+  margin-bottom: 12px;
+}
+.map-cta-label {
+  color: var(--brand-dark);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  margin-bottom: 10px;
+}
+.map-main-button {
+  font-size: 16px;
+  min-height: 54px;
+  padding-inline: 24px;
+}
+.text-cta {
+  color: var(--brand-dark);
+  font-weight: 900;
+  text-decoration-thickness: .1em;
+}
+.map-guide-section {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.map-link-card .button {
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .map-cta-panel {
+    margin-top: 26px;
+    padding: 22px 18px;
+  }
+  .map-cta-panel .buttons,
+  .map-link-card .button {
+    width: 100%;
+  }
+  .map-cta-panel .button,
+  .map-link-card .button {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
