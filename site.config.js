@@ -4,5 +4,5 @@ window.SORA_CONFIG = {
   officialShop: "https://onokun.shop.socialimagine.com/",
   officialShopGuide: "https://onokun.com/onokun-official-shop/",
   satoyaMap: "https://onokun.com/satoya-map/",
-  googleMap: "https://www.google.com/maps/search/?api=1&query=%E9%99%B8%E5%89%8D%E5%B0%8F%E9%87%8E%E9%A7%85%20%E7%A9%BA%E3%81%AE%E9%A7%85%20%E3%81%8A%E3%81%AE%E3%81%8F%E3%82%93"
+  googleMap: "https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%9F%8E%E7%9C%8C%E6%9D%B1%E6%9D%BE%E5%B3%B6%E5%B8%82%E7%89%9B%E7%B6%B2%E5%AD%97%E4%B8%8A%E6%B1%9F%E6%88%B8%E5%8E%9F4-1"
 };
