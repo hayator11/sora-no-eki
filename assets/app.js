@@ -45,3 +45,77 @@ if (!document.querySelector('script[type="application/ld+json"][data-breadcrumb]
     document.head.appendChild(script);
   }
 }
+
+const newsList = document.querySelector("[data-soranoeki-news-list]");
+const newsStatus = document.querySelector("[data-soranoeki-news-status]");
+
+if (newsList && newsStatus) {
+  const newsApi = window.SORA_CONFIG?.soranoekiNewsApi || "https://onokun.com/wp-json/wp/v2/soranoeki_news?per_page=3&_embed";
+
+  const stripHtml = (html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html || "";
+    return div.textContent.trim();
+  };
+
+  const escapeHtml = (text) => String(text || "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#039;"
+  }[char]));
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return "";
+    return new Intl.DateTimeFormat("ja-JP", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }).format(date);
+  };
+
+  const getFeaturedImage = (post) => {
+    const media = post?._embedded?.["wp:featuredmedia"]?.[0];
+    return media?.media_details?.sizes?.medium_large?.source_url || media?.source_url || "";
+  };
+
+  fetch(newsApi)
+    .then((response) => {
+      if (!response.ok) throw new Error("News API error");
+      return response.json();
+    })
+    .then((posts) => {
+      if (!Array.isArray(posts) || posts.length === 0) {
+        newsStatus.textContent = "現在、公開中のお知らせはありません。";
+        return;
+      }
+
+      newsList.innerHTML = posts.map((post) => {
+        const title = stripHtml(post.title?.rendered);
+        const excerpt = stripHtml(post.excerpt?.rendered);
+        const image = getFeaturedImage(post);
+        const date = formatDate(post.date);
+        const safeTitle = escapeHtml(title);
+        const safeExcerpt = escapeHtml(excerpt);
+        const safeDate = escapeHtml(date);
+        const safeImage = escapeHtml(image);
+        const safeLink = escapeHtml(post.link);
+        const imageHtml = safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy">` : "";
+
+        return `
+          <article class="card">
+            ${imageHtml}
+            <p class="eyebrow">${safeDate}</p>
+            <h3><a href="${safeLink}">${safeTitle}</a></h3>
+            <p>${safeExcerpt}</p>
+          </article>
+        `;
+      }).join("");
+      newsStatus.textContent = "";
+    })
+    .catch(() => {
+      newsStatus.textContent = "お知らせを読み込めませんでした。";
+    });
+}
